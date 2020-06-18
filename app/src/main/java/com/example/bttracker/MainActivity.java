@@ -1,5 +1,6 @@
 package com.example.bttracker;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
@@ -7,19 +8,38 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createNotificationChannel();
-    }
+        TextView mainButton1 = findViewById(R.id.MainButton1);
+        //Add "an ear" to MainButton1
+        mainButton1.setOnClickListener((View.OnClickListener) this);
+
+        TextView mainButton2 = findViewById(R.id.MainButton2);
+        //Add "an ear" to MainButton2
+        mainButton2.setOnClickListener((View.OnClickListener) this);
+
+        TextView mainButton8 = findViewById(R.id.MainButton8);
+        //Add "an ear" to MainButton8
+        mainButton8.setOnClickListener((View.OnClickListener) this);
+
+        TextView mainButton9 = findViewById(R.id.MainButton9);
+        //Add "an ear" to MainButton9
+        mainButton9.setOnClickListener((View.OnClickListener) this);
+  }
+
 
     public void goToLogActivity(View view) {
         Intent tolog = new Intent(this, LogActivity.class);
@@ -63,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(), interval, pd);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void createNotificationChannel(){
         // First, check SDK version
         // Create notification channel only if SDK version > Android 8
@@ -78,6 +99,32 @@ public class MainActivity extends AppCompatActivity {
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             // Create notification channel
             notificationManager.createNotificationChannel(channel);
+        }
+    }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.MainButton1:
+                Intent toLog = new Intent(this, LogActivity.class);
+                startActivity(toLog);
+                break;
+            case R.id.MainButton2:
+                Intent toNormal = new Intent(this, NomalActivity.class);
+                startActivity(toNormal);
+                break;
+            case R.id.MainButton9:
+                Intent toMechanism = new Intent(this, MechanismActivity.class);
+                startActivity(toMechanism);
+                break;
+                case R.id.MainButton8;
+                Intent openFeverLInk = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.healthline.com/health/how-to-break-a-fever"));
+
+                    Intent openFeverLink;
+                    if(openFeverLink.resolveActivity(getPackageManager())) !=null){
+    startActivity(openFeverLInk);
+                }
+                break;
         }
     }
 }
