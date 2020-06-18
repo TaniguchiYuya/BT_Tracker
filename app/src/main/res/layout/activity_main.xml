@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFEB3B"
     tools:context=".MainActivity">
 
     <View
         android:id="@+id/titleBackground"
         android:layout_width="0dp"
         android:layout_height="187dp"
-        android:background="#374F4D"
+        android:background="#070909"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,13 +60,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
-            android:background="#009688"
+            android:background="#FF5722"
             android:onClick="goToLogActivity"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:text="@string/log_body_temperature"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#E91E63" />
+            android:textColor="#F4F0F1" />
 
 
         <View
@@ -84,13 +85,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
-            android:background="#009688"
+            android:background="#FF5722"
             android:onClick="goToNormalActivity"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:text="@string/check_normal_range"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#E91E63" />
+            android:textColor="#FAF9F9" />
 
         <View
             android:id="@+id/view4"
@@ -107,13 +108,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
-            android:background="#009688"
+            android:background="#FF5722"
             android:onClick="gotoHandlingActivity"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:text="@string/handling_fever"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#E91E63" />
+            android:textColor="#F8F1F4" />
 
         <View
             android:id="@+id/view5"
@@ -130,13 +131,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
-            android:background="#009688"
+            android:background="#FF5722"
             android:onClick="gotoMechanismActivity"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:text="@string/mechanism_of_fever"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#E91E63" />
+            android:textColor="#F1EEEF" />
 
     </LinearLayout>
 
