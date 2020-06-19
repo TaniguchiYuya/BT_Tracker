@@ -6,5 +6,7 @@
     <string name="check_normal_range">Check Normal Range</string>
     <string name="handling_fever">Handling Fever</string>
     <string name="mechanism_of_fever">Mechanism of Fever</string>
+    <string name="set_reminder">Set Reminder</string>
+    <string name="normal_human_body_temperature_is_between_36_0_37_5">normal human body temperature is between 36.0–37.5</string>
 
 </resources>

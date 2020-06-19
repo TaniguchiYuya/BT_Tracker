@@ -15,7 +15,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private View view;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -39,6 +41,30 @@ public class MainActivity extends AppCompatActivity {
         //Add "an ear" to MainButton9
         mainButton9.setOnClickListener((View.OnClickListener) this);
   }
+  @Override
+  public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.MainButton1:
+                Intent toLog = new Intent(this, LogActivity.class);
+                startActivity(toLog);
+                break;
+            case R.id.MainButton2:
+                Intent toNormal = new Intent(this, NomalActivity.class);
+                startActivity(toNormal);
+                break;
+            case R.id.MainButton9:
+                Intent toMechanism = new Intent(this, MechanismActivity.class);
+                startActivity(toMechanism);
+                break;
+            case R.id.MainButton8:
+                Intent openFeverLink = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.healthline.com/health/how-to-break-a-fever"));
+                if(openFeverLink.resolveActivity(getPackageManager()) != null){
+                    startActivity(openFeverLink);
+                }
+                break;
+        }
+  }
 
 
     public void goToLogActivity(View view) {
@@ -47,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToNormalActivity(View view) {
-        Intent toNomrmal = new Intent(this, NomalActivity.class);
-        startActivity(toNomrmal);
+        Intent toNormal = new Intent(this, NomalActivity.class);
+        startActivity(toNormal);
     }
 
     public void gotoMechanismActivity(View view) {
@@ -88,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         // First, check SDK version
         // Create notification channel only if SDK version > Android 8
         // CAUTION: It's Oreo's 0, not number 0!!!
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.0){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             String channelID = "BT_Tracker_Channel";
             String channelName = "BTTrackerReminderChannel";
             String channelIDescription = "Channel for BT Tracker reminder";
@@ -101,30 +127,5 @@ public class MainActivity extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
     }
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.MainButton1:
-                Intent toLog = new Intent(this, LogActivity.class);
-                startActivity(toLog);
-                break;
-            case R.id.MainButton2:
-                Intent toNormal = new Intent(this, NomalActivity.class);
-                startActivity(toNormal);
-                break;
-            case R.id.MainButton9:
-                Intent toMechanism = new Intent(this, MechanismActivity.class);
-                startActivity(toMechanism);
-                break;
-                case R.id.MainButton8;
-                Intent openFeverLInk = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.healthline.com/health/how-to-break-a-fever"));
 
-                    Intent openFeverLink;
-                    if(openFeverLink.resolveActivity(getPackageManager())) !=null){
-    startActivity(openFeverLInk);
-                }
-                break;
-        }
-    }
 }
